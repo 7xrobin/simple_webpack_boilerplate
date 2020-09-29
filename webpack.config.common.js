@@ -1,14 +1,14 @@
 const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = {
   entry: "./src/index.js",
   output: {
     path: path.resolve(__dirname, "dist"),
-    filename: "bundle.js",
+    filename: "main.js",
   },
-  mode: "production",
 
   module: {
     rules: [
@@ -53,26 +53,18 @@ module.exports = {
           },
         ],
       },
-      {
-        test: /\.(woff|woff2|ttf|otf|eot)$/,
-        use: [
-          {
-            loader: "file-loader",
-            options: {
-              outputPath: "fonts",
-            },
-          },
-        ],
-      },
     ],
   },
 
   plugins: [
+    new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
-      title: "Output Management",
+      filename: "index.html",
+      inject: true,
+      template: path.resolve(__dirname, "src", "index.html"),
     }),
     new MiniCssExtractPlugin({
-      filename: "bundle.css",
+      filename: "styles.css",
     }),
   ],
 };

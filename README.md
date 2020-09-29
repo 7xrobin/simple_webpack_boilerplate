@@ -29,5 +29,3 @@ Build for Production (Minified files)
 ```
 $ yarn build
 ```
-
-Done! Open index.html in browser for a cat image.

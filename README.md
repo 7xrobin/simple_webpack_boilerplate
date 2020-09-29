@@ -18,16 +18,16 @@ Run Serve on develop mode
 $ yarn start
 ```
 
-Build in develop mode (Not minified)
+Build in develop mode (Not minified files)
 
 ```
 $ yarn build-dev
 ```
 
-Build for Production (Not minified)
+Build for Production (Minified files)
 
 ```
-$ yarn build-dev
+$ yarn build
 ```
 
 Done! Open index.html in browser for a cat image.
